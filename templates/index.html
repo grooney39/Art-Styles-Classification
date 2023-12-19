@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<body>
+    <br>
+    <form method="post" enctype="multipart/form-data" action="predictImage" onsubmit="return zapiszPlik()">
+    {% csrf_token %}
+    <div class="col-md-4 col-sm-4"><label for="fname">Załaduj: </label> <input id="button-13" name="filePath" type="file" ><br><br>
+
+        <label>Podaj nazwę pliku: </label><input type="text" id="button-13" name="fileName">
+
+
+        <label for="models">Wybierz model:</label>
+            <select id="button-13" name="models">
+                <option value="" disabled selected hidden> </option>
+                <option value="model1">model1</option>
+                <option value="model2">model2</option>
+                <option value="model3">model3</option>
+            </select>
+        <br>
+        <br>
+        <input type="submit" value="Zatwierdź" id="button-13"></div>
+
+
+        <h2>Rozpoznany styl dla pliku <em>{{ filename }}</em>: {{ predictedLabel }} z prawdopodobieństwem {{ prob }}</h2>
+    <div class="my-image">
+        <img src={{ filePathName }} alt="imagename"></div>
+
+    </form>
+
+
+</body>
+{% endblock content %}

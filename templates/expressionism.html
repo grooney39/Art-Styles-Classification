@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <h2>Obrazy zakwalifikowane do stylu: Ekspresionizm</h2>
+
+    {% if files %}
+        {% for file in files %}
+            <br>
+            {{ file.1 }}
+            <br>
+            <img src="{{ file.0 }}" alt="image">
+            <br>
+        {% endfor %}
+    {% else %}
+        <p>Brak obrazów w bazie zakwalifikowanych do tego stylu.</p>
+    {% endif %}
+
+{% endblock content %}
